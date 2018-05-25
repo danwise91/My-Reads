@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 //import book.js
 import {PropTypes} from 'prop-types'
-
 import BookShelves from './BookShelves'
 
 class ListBooks extends Component{
@@ -10,22 +9,21 @@ state = {
 	shelfs: [
 	  {
 		shelfName: 'Currently Reading',
-		// shelfId: ''
+		shelfId: 'currentlyReading'
 	  },
 	  {
 		shelfName: 'Want To Read',
-		// shelfId: ''
+		shelfId: 'wantToRead'
 	  },
 	  {
-	  	shelfName: 'Read'
+	  	shelfName: 'Read',
+	  	shelfId: 'read'
 	  }
 	]
 
 }
 
-
 render(){
-	const book = this.props.books
 	// console.log("Props", this.props)
 	return(
 		<div>
@@ -33,11 +31,13 @@ render(){
 		  <BookShelves
 			title={shelf.shelfName}
 			key={index}
-			books={this.props.books}
+			books={this.props.books.filter((book) => {book.shelf === shelf.shelfId})}
 			onSwitchShelf = {this.props.onSwitchShelf}
 			/>
 		))}
+
 		</div>
+
 	   )
 	}
 }

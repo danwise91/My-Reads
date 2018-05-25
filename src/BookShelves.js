@@ -9,6 +9,8 @@ class BookShelves extends Component{
 updateShelf = (book, shelf) => {
 	this.props.onSwitchShelf(book, shelf)
 }
+//for testing the filter
+//shelf="currentlyReading"
 
 render(){
 	// console.log("Prop", this.props)
