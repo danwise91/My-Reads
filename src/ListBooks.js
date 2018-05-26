@@ -11,6 +11,9 @@ render(){
 	//create the shelf for corresponding book shelf name
 	return(
 		<div>
+			<div className="list-books-title">
+              <h1>MyReads</h1>
+            </div>
 		  <BookShelves
 			books={this.props.books.filter((book) => (book.shelf === "currentlyReading"))}
 			title="Currently Reading"

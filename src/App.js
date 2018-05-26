@@ -66,9 +66,7 @@ updateQuery = (query) => {
     return (
       <div className="app">
         <div className="list-books">
-            <div className="list-books-title">
-              <h1>MyReads</h1>
-            </div>
+            
          <Route exact path='/' render ={() => (
             <ListBooks 
             books={this.state.books}
@@ -79,7 +77,8 @@ updateQuery = (query) => {
         <Route path='/search' render={() => (
            <BookSearch 
               query = {this.state.query}
-              onChange={(event) => this.updateQuery(event.target.value)}
+              books={this.state.books}
+              onSwitchShelf = {this.updateBook}
              />
           )}/>
       </div>
