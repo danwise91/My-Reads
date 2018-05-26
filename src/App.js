@@ -10,6 +10,7 @@ import BookSearch from './BookSearch'
 class BooksApp extends React.Component {
   state = {
     books: [],
+    query: ''
     //create dummy data to test on
     // {
     //    "id": "1",
@@ -56,6 +57,11 @@ class BooksApp extends React.Component {
     })
   }
 
+//update the search query
+updateQuery = (query) => {
+  this.setState({query: query.trim()})
+}
+
   render() {
     return (
       <div className="app">
@@ -71,9 +77,11 @@ class BooksApp extends React.Component {
           )}/>
           
         <Route path='/search' render={() => (
-           <BookSearch />
+           <BookSearch 
+              query = {this.state.query}
+              onChange={(event) => this.updateQuery(event.target.value)}
+             />
           )}/>
-     
       </div>
        <div className="open-search">
           <Link
