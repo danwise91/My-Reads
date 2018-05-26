@@ -10,16 +10,16 @@ switchShelf = (event) => {
 
 
 render(){
-	// console.log("Props", this.props)
+	console.log("Props", this.props)
 	return (
-	<ol className="books-grid">
-			<li key={this.key}>
+			<li>
 			  <div className="book">
 			  <div className="book-top">
 			   <div className="book-cover" style={{ 
 			   	width: 128, 
 			   	height: 193, 
-			   	backgroundImage:'url("{this.props.imageURL}")'}}>
+			   	backgroundImage:`url("${this.props.imageURL}")`
+			   }}>
 				<div className="book-shelf-changer">
                    <select onChange={this.switchShelf} value={this.props.shelf}>
                         <option value="none" disabled>Move to...</option>
@@ -31,12 +31,10 @@ render(){
                    </div>				
 			  	  </div>
 			  	  <div className="book-title">{this.props.title}</div>
-			  	  <div className="book-authors">{this.props.author}</div>
+			  	  <div className="book-authors">{this.props.author[0]}</div>
 			     </div>
 			   </div>
-			  </li>
-
-		</ol>
+			</li>
 	    )
 	}
 }

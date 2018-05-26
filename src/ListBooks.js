@@ -23,6 +23,8 @@ state = {
 
 }
 
+// {this.props.books.filter((book) => {book.shelf === shelf.shelfId})}
+
 render(){
 	// console.log("Props", this.props)
 	return(
@@ -35,9 +37,7 @@ render(){
 			onSwitchShelf = {this.props.onSwitchShelf}
 			/>
 		))}
-
 		</div>
-
 	   )
 	}
 }

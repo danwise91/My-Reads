@@ -14,29 +14,27 @@ updateShelf = (book, shelf) => {
 
 render(){
 	// console.log("Prop", this.props)
+  //book={book}
 	return (
-	<div className="list-books-content">
-       <div>
-          <div className="bookshelf">
-           <h2 className="bookshelf-title">{this.props.title}</h2>
-            <div className="bookshelf-books">
-             <ol className="books-grid">
+      <div className="bookshelf">
+       <h2 className="bookshelf-title">{this.props.title}</h2>
+        <div className="bookshelf-books">
+          <ol className="books-grid">
              {this.props.books.map((book, index) =>(
              	<Book 
-             		imageURL={book.imageURL} 
              		title={book.title}
+                author={book.authors}
+                imgURL={book.imageLinks.thumbnail}
+                shelf={book.shelf}
              		key={book.id}
-             		shelf={book.shelf}
              		onSwitchShelf={(shelf) =>{
              			this.updateShelf(book, shelf)
              		}} 
              	/>
              ))}
-             </ol>
-            </div>
-           </div>
-          </div>
-         </div>
+          </ol>
+        </div>
+      </div>
 	)
 }
 
