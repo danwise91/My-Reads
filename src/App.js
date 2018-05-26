@@ -74,12 +74,10 @@ updateQuery = (query) => {
            />
           )}/>
           
-        <Route path='/search' render={() => (
-           <BookSearch 
+        <Route path='/search' render={({history}) => (<BookSearch 
               query = {this.state.query}
               books={this.state.books}
-              onSwitchShelf = {this.updateBook}
-             />
+              onSwitchShelf = {this.updateBook}/>
           )}/>
       </div>
        <div className="open-search">

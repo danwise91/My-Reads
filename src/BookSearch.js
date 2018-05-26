@@ -7,6 +7,16 @@ import Book from './Book'
 
 class BookSearch extends Component{
 
+state = {
+	query: ''
+}
+
+//update the search query
+updateQuery = (query) => {
+  this.setState({query: query.trim()})
+}
+
+
 updateShelf = (book, shelf) => {
 	this.props.onSwitchShelf(book, shelf)
 }
@@ -15,8 +25,8 @@ render(){
 	let showingBooks 
 	//returns truthy if someone has typed into the input field
 	 //if not then set it to whatever books originally was 
-	if (this.props.query){
-		const match = new RegExp(escapeRegExp(this.props.query), 'i')
+	if (this.state.query){
+		const match = new RegExp(escapeRegExp(this.state.query), 'i')
 		showingBooks = this.props.books.filter((book) => match.test(book.title))
 	}else {
 		showingBooks = this.props.books
@@ -35,8 +45,8 @@ render(){
 			className="searchBar"
 			type="text"
 			placeholder="Search By Title Or Author"
-			value={this.props.query}
-			onChange={this.props.onChange}
+			value={this.state.query}
+			onChange={event => this.updateQuery(event.target.value)}
 		   />
 	      </div>
 	      <div className="search-book-results">
