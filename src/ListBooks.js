@@ -1,42 +1,34 @@
 import React, {Component} from 'react'
-//import book.js
+
 import {PropTypes} from 'prop-types'
 import BookShelves from './BookShelves'
 
 class ListBooks extends Component{
 
-state = {
-	shelfs: [
-	  {
-		shelfName: 'Currently Reading',
-		shelfId: 'currentlyReading'
-	  },
-	  {
-		shelfName: 'Want To Read',
-		shelfId: 'wantToRead'
-	  },
-	  {
-	  	shelfName: 'Read',
-	  	shelfId: 'read'
-	  }
-	]
 
-}
-
-// {this.props.books.filter((book) => {book.shelf === shelf.shelfId})}
 
 render(){
 	// console.log("Props", this.props)
 	return(
 		<div>
-		{this.state.shelfs.map((shelf, index) =>(
+		//create the shelf for corresponding book shelf name
 		  <BookShelves
-			title={shelf.shelfName}
-			key={index}
-			books={this.props.books.filter((book) => {book.shelf === shelf.shelfId})}
+			books={this.props.books.filter((book) => (book.shelf === "currentlyReading"))}
+			title="Currently Reading"
 			onSwitchShelf = {this.props.onSwitchShelf}
 			/>
-		))}
+
+			<BookShelves
+			books={this.props.books.filter((book) => (book.shelf === "wantToRead"))}
+			title="Want Reading"
+			onSwitchShelf = {this.props.onSwitchShelf}
+			/>
+
+			<BookShelves
+			books={this.props.books.filter((book) => (book.shelf === "read"))}
+			title="Read"
+			onSwitchShelf = {this.props.onSwitchShelf}
+			/>
 		</div>
 	   )
 	}

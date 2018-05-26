@@ -23,7 +23,7 @@ render(){
              {this.props.books.map((book, index) =>(
              	<Book 
              		title={book.title}
-                author={book.authors}
+                authors={book.authors}
                 imgURL={book.imageLinks.thumbnail}
                 shelf={book.shelf}
              		key={book.id}

@@ -31,7 +31,13 @@ render(){
                    </div>				
 			  	  </div>
 			  	  <div className="book-title">{this.props.title}</div>
-			  	  <div className="book-authors">{this.props.author[0]}</div>
+			  	  {this.props.authors && this.props.authors.map((author, index) => (
+			  	  	<div
+			  	  	  className="book-authors"
+			  	  	  key={index}
+			  	  	  >{`${author}`}
+			  	    </div>
+			  	  ))}
 			     </div>
 			   </div>
 			</li>
