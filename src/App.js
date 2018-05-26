@@ -1,8 +1,11 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
 import ListBooks from './ListBooks'
+import BookSearch from './BookSearch'
 
 class BooksApp extends React.Component {
   state = {
@@ -31,7 +34,7 @@ class BooksApp extends React.Component {
     //    "authors": ["David McCullough"],
     //    "imageLinks": "http://books.google.com/books/content?id=uu1mC6zWNTwC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73pGHfBNSsJG9Y8kRBpmLUft9O4BfItHioHolWNKOdLavw-SLcXADy3CPAfJ0_qMb18RmCa7Ds1cTdpM3dxAGJs8zfCfm8c6ggBIjzKT7XR5FIB53HHOhnsT7a0Cc-PpneWq9zX&source=gbs_api"
     // }
-    showSearchPage: false
+    // showSearchPage: false,
   }
 
 //fetch books from the BooksAPI then set the state of books to all books
@@ -46,7 +49,7 @@ class BooksApp extends React.Component {
     this.fetchBookDetails()
   }
 
-//update book and shelf for the book to be moved
+//update BooksAPI with corresponding book and new shelf
   updateBook = (book, shelf) =>{
     BooksAPI.update(book, shelf).then(() =>{
       this.fetchBookDetails()
@@ -60,11 +63,24 @@ class BooksApp extends React.Component {
             <div className="list-books-title">
               <h1>MyReads</h1>
             </div>
-        <ListBooks 
-        books={this.state.books}
-        onSwitchShelf = {this.updateBook}
-        />
+         <Route exact path='/' render ={() => (
+            <ListBooks 
+            books={this.state.books}
+            onSwitchShelf = {this.updateBook}
+           />
+          )}/>
+          
+        <Route path='/search' render={() => (
+           <BookSearch />
+          )}/>
+     
       </div>
+       <div className="open-search">
+          <Link
+              to="/search">
+              Add a book
+          </Link>
+        </div>
     </div>
     )
   }
