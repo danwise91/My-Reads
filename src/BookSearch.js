@@ -51,13 +51,10 @@ render(){
 	      </div>
 	      <div className="search-book-results">
 	      	<ol className="books-grid">
-	      	  {showingBooks.map((book) =>(
+	      	  {showingBooks.map((book, index) =>(
 	      	  		<Book
-	      	  		  title={book.title}
-		              authors={book.authors}
-		              imgURL={book.imageLinks.thumbnail}
-		              shelf={book.shelf}
-             		  key={book.id}
+	      	  		  book={book}
+             		  key={index}
              		  onSwitchShelf={(shelf) =>{
              			this.updateShelf(book, shelf)
              		  }} 

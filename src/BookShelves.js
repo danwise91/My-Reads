@@ -22,10 +22,7 @@ render(){
           <ol className="books-grid">
              {this.props.books.map((book, index) =>(
              	<Book 
-             		title={book.title}
-                authors={book.authors}
-                imgURL={book.imageLinks.thumbnail}
-                shelf={book.shelf}
+             		book={book}
              		key={book.id}
              		onSwitchShelf={(shelf) =>{
              			this.updateShelf(book, shelf)
