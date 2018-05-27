@@ -76,10 +76,8 @@ render(){
 	   <Link className="close-search" to="/">Back</Link>
 	   <div className="search-books-input-wrapper">
 	   	 <input
-			className="searchBar"
 			type="text"
 			placeholder="Search By Title Or Author"
-			value={this.state.query}
 			onChange={this.updateQuery}
 		   />
 	      </div>
@@ -96,7 +94,7 @@ render(){
 	      	  	   />
 	      	  	))}
 	      	</ol>
-	      </div>
+	      </div>   
 	   </div>
 	)
 }
