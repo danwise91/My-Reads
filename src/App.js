@@ -9,8 +9,7 @@ import BookSearch from './BookSearch'
 
 class BooksApp extends React.Component {
   state = {
-    books: [],
-    query: ''
+    books: []
     //create dummy data to test on
     // {
     //    "id": "1",
@@ -57,10 +56,7 @@ class BooksApp extends React.Component {
     })
   }
 
-//update the search query
-updateQuery = (query) => {
-  this.setState({query: query.trim()})
-}
+
 
   render() {
     return (
@@ -75,7 +71,6 @@ updateQuery = (query) => {
           )}/>
           
         <Route path='/search' render={({history}) => (<BookSearch 
-              query = {this.state.query}
               books={this.state.books}
               onSwitchShelf = {this.updateBook}/>
           )}/>

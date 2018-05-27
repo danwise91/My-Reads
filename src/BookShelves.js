@@ -1,20 +1,23 @@
 import React, {Component} from 'react'
 import Book from './Book'
+import {PropTypes} from 'prop-types'
+
 class BookShelves extends Component{
 
+static propTypes = {
+  books: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+  onSwitchShelf: PropTypes.func.isRequired
+}
+
 //list 3 shelves and map over books to list them for 
-//each shelf 
-
-
+//each shelf
 updateShelf = (book, shelf) => {
 	this.props.onSwitchShelf(book, shelf)
 }
-//for testing the filter
-//shelf="currentlyReading"
 
 render(){
 	// console.log("Prop", this.props)
-  //book={book}
 	return (
       <div className="bookshelf">
        <h2 className="bookshelf-title">{this.props.title}</h2>

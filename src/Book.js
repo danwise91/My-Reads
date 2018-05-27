@@ -1,13 +1,17 @@
 import React, {Component} from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 class Book extends Component{
+
+static propTypes = {
+	book: PropTypes.object.isRequired,
+	onSwitchShelf: PropTypes.func.isRequired
+}
 
 //create function to switch the shelf prop
 switchShelf = (event) => {
 	this.props.onSwitchShelf(event.target.value)
 }
-
 
 render(){
 	console.log("Props", this.props)

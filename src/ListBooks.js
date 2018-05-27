@@ -5,6 +5,11 @@ import BookShelves from './BookShelves'
 
 class ListBooks extends Component{
 
+static propTypes = {
+	books: PropTypes.array.isRequired,
+	onSwitchShelf: PropTypes.func.isRequired
+}
+
 
 render(){
 	// console.log("Props", this.props)
