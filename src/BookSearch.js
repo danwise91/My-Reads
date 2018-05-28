@@ -31,12 +31,9 @@ assignShelf = (books) =>{
 	let allBooks = this.props.books
 	for(let book of books){
 		book.shelf = 'none'
-	}
-
-	for (let book of books){
 		for(let b of allBooks){
 			if(b.id === book.id){
-				book.shef = b.shelf
+				book.shelf = b.shelf
 			}
 		}
 	}
